@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { verifyTokenAndAdmin } = require("./verifyToken");
+const { verifyTokenAndAdmin } = require("../config/verifyToken");
 const { 
         productControllerCreate, 
         productControllerUpdate,

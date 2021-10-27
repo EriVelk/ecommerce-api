@@ -1,4 +1,4 @@
-const { verifyTokenAndAdmin } = require("./verifyToken");
+const { verifyTokenAndAdmin } = require("../config/verifyToken");
 const router = require("express").Router();
 const Cart = require("../models/Cart");
 

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { 
         verifyTokenAndAuthorization, 
         verifyTokenAndAdmin 
-        } = require("./verifyToken");
+        } = require("../config/verifyToken");
         
 const {
         userControllerGet, 
