@@ -3,7 +3,7 @@ const router = require("express").Router();
 const Cart = require("../models/Cart");
 
 //Create
-
+//Add Cart
 router.post("/", verifyTokenAndAdmin, async(req, res) =>{
     const newCart = new Cart(req.body);
 
