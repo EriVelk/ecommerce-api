@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const userController = {};
 
+const {deletedUser} = require("../utils/constants");
+
 userController.userControllerEdit = async(req, res)=>{
     if(req.body.password){
         req.body.password = CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SEC).toString()
@@ -19,7 +21,7 @@ userController.userControllerEdit = async(req, res)=>{
 userController.userControllerDelete = async(req, res)=>{
     try {
         await User.findByIdAndDelete(req.params.id);
-        res.status(200).json("User has been deleted...");
+        res.status(200).json({deletedUser});
     } catch (error) {
         res.status(500).json(error);
     }

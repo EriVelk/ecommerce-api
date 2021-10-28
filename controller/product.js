@@ -2,6 +2,8 @@ const Product = require("../models/Product");
 
 const productController = {};
 
+const {deletedProduct} = require("../utils/constants");
+
 productController.productControllerCreate = async(req, res) =>{
     const newProduct = new Product(req.body);
 
@@ -28,7 +30,7 @@ productController.productControllerUpdate = async(req, res) =>{
 productController.productControllerDelete = async(req, res) =>{
     try {
         await Product.findByIdAndDelete(req.params.id);
-        res.status(200).json("Product has been deleted.");
+        res.status(200).json({deletedProduct});
     } catch (error) {
         res.status(500).json(error);
     }

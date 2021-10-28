@@ -1,18 +1,28 @@
-const { verifyTokenAndAdmin } = require("../config/verifyToken");
+const { verifyTokenAndAdmin, verifyTokenAndAuthorization, verifyToken } = require("../config/verifyToken");
 const router = require("express").Router();
-const Cart = require("../models/Cart");
+
+const {
+    cartControllerCreate,
+    cartControllerUpdate,
+    cartControllerDelete,
+    cartControllerUsercart,
+    cartControllerGetAll
+} = require("../controller/cart");
 
 //Create
 //Add Cart
-router.post("/", verifyTokenAndAdmin, async(req, res) =>{
-    const newCart = new Cart(req.body);
+router.post("/", verifyToken, cartControllerCreate);
 
-    try {
-        const savedCart = await newCart.save();
-        res.status(200).json(savedCart);
-    } catch (error) {
-        res.status(500).json(error);
-    }
-});
+//Update
+router.put("/:id", verifyTokenAndAuthorization, cartControllerUpdate);
+
+//Delete
+router.delete("/:id", verifyTokenAndAuthorization, cartControllerDelete);
+
+//Get UserCart
+router.get("/find/:userId", verifyTokenAndAuthorization, cartControllerUsercart);
+
+//Get all
+router.get("/", verifyTokenAndAdmin, cartControllerGetAll);
 
 module.exports = router;
