@@ -11,3 +11,21 @@ Endpoints are available in:
 
 Example documentation POSTMAN
 - https://drive.google.com/drive/folders/1983gO_E_3TgiKmYooZln-a7sYI0il7Ip?usp=sharing
+
+# Steps
+
+- 1. Execute https://giftable6.herokuapp.com/api/auth/register
+
+    {
+        "username" : "usernameTest",
+        "email": "emailTest@hotmail.com.mx",
+        "password" : "passwordTest"
+    }
+- 2. Execute https://giftable6.herokuapp.com/api/auth/login
+
+    {
+        "username":"test",
+        "password":"testHeroku"
+    }
+- - Once you have accessed the system you will get a token
+- - Remember to send the token in the header to be able to access the endpoints 
