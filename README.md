@@ -10,7 +10,7 @@ Endpoints are available in:
 - https://giftable6.herokuapp.com/api/order
 
 Example documentation POSTMAN
-- https://drive.google.com/drive/folders/1983gO_E_3TgiKmYooZln-a7sYI0il7Ip?usp=sharing
+- https://documenter.getpostman.com/view/10682643/UyxhonQP
 
 # Steps
 

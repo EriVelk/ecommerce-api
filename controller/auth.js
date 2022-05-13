@@ -26,7 +26,7 @@ authController.authControllerLogin = async(req, res) =>{
             username: req.body.username
         });
 
-        !user && res.status(401).json("Wrong credentials");
+        !user && res.status(401).json({"message":"Wrong credentials"});
 
         const hashedPassword = CryptoJS.AES.decrypt(
             user.password,
@@ -35,7 +35,7 @@ authController.authControllerLogin = async(req, res) =>{
 
         const Originalpassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
-        Originalpassword !== req.body.password && res.status(401).json("Wrong credentials");
+        Originalpassword !== req.body.password && res.status(401).json({"message":"Wrong credentials"});
 
         const accessToken = jwt.sign(
             {
